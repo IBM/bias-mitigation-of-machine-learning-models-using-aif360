@@ -46,7 +46,7 @@ In this Code Pattern, we will demonstrate the working of AI fairness 360 algorit
 * [Analytics](https://developer.ibm.com/code/technologies/analytics/): Analytics delivers the value of data for the enterprise.
 * [Python](https://www.python.org/): Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
-# Steps using Cortex Certifai on Watson Studio
+## Steps using AIF 360 on Watson Studio
 
 
 1. [Create an account with IBM Cloud](#1-create-an-account-with-ibm-cloud)
