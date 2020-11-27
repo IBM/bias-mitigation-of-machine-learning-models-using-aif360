@@ -155,7 +155,7 @@ We can observe that, after applying bias mitigation algorithm, there is no unfai
 
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/in-proc.png)
 
-We can observe that, after applying bias mitigation algorithm during training, the equal opportunity difference has reduced from 17% to just 3%. The Average odds difference has reduced from 22% to 13% thereby making the model unbiased to a good extent.
+We can observe that, after applying bias mitigation algorithm during training, the equal opportunity difference has reduced from 17% to just 3%. The Average odds difference has reduced from 22% to 13% thereby making the model unbiased to a good extent. There's reduction in the numbers before and after de-biasing the dataset metrics.
 
 **Post-processing results**
 
