@@ -67,20 +67,20 @@ Sign up for IBM's [Watson Studio](http://dataplatform.ibm.com/).
 
 Click on New Project and select per below.
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/create_prj.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/create_prj.png)
 
 Define the project by giving a Name and hit 'Create'.
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/def_prj.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/def-prj.png)
 
 ## 3. Add Data
 
-[Clone this repo](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai)
-Navigate to [data/assets](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/tree/main/data/assets) and save the file by name `german_credit_eval.csv` on the disk. The dataset will be available under the Certifai toolkit which was downloaded in the previous step.
+[Clone this repo](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360)
+Navigate to [data/assets](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/tree/main/data/assets) and save the file by name `fraud_data.csv` on the disk. The zip file `Pipeline_LabelEncoder-0.1.zip` also needs to be saved onto the disk. 
 
-Click on Assets and select Browse and add the csv file from your file system.
+Click on Assets and select Browse and add the csv file from your file system. Repeat the step and add the zip file as an asset. 
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/add_asset.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/add_asset.png)
 
 ## 4. Create the notebook
 
@@ -90,25 +90,27 @@ Click on Assets and select Browse and add the csv file from your file system.
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Enter this Notebook URL : https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/notebooks/WS_classifier.ipynb
-* Select the runtime (8 vCPU and 32GB RAM)
+* Enter this Notebook URL for Pre-processing  : https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/notebooks/Pre-processing.ipynb
+* Enter this Notebook URL for In-processing   : https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/notebooks/In-processing.ipynb
+* Enter this Notebook URL for Post-processing : https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/notebooks/Post-processing.ipynb
+* Select the runtime (2 vCPU and 8 GB RAM.)
 * Click the `Create` button.
 
-After the notebook is imported, click on `Not Trusted` and select the option as Yes to trust the source of the notebook.
+After the notebooks are imported, click on `Not Trusted` and select the option as Yes to trust the source of the notebooks.
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/not_trusted.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/not_trusted.png)
 
-`This notebook has been created to demonstrate the steps for building the model using Watson Studio platform. For other usecases, the notebook has to be created from scratch.`
+`This notebook has been created to demonstrate the steps for building the model using Watson Studio platform for fraud prediction usecase. For other usecases, the notebook has to be modified to read the new dataset and the same steps can be executed.`
 
 ## 5. Insert the data as dataframe
 
 Click on 0010 icon at the top right side which will bring up the data assets tab.
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/add.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/add.png)
 
 Click on Insert to code dropdown and select the option Insert Pandas Dataframe.
 
-![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/insert_dataframe.png)
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/insert_dataframe.png)
 
 ## 6. Run the notebook
 
@@ -134,10 +136,34 @@ There are several ways to execute the code cells in your notebook:
 
 ## 7. Analyze the results
 
-After we run all cells in the notebook, the scan results are uploaded onto object storage which can be downloaded by following these steps. Login to [IBM Cloud](https://cloud.ibm.com/), navigate to `Dashboard` on the left hand side and click on `Storage`. Click on the bucket name which is an extension of the project name in Watson Studio and select the `scan_results.csv` file for downloading it.
+After we run all cells in the notebook, the results are displayed at the end of each notebook per below.
 
+**Pre-processing results**
 
+`Before pre-processing`
 
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/before-pre-proc.png)
+
+We can observe that, priviledged group had 37% more chance of getting a favorable outcome because of the bias in the dataset.
+
+`After pre-processing`
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/after-pre-proc.png)
+
+We can observe that, after applying bias mitigation algorithm, there is no unfair advantage between priviledged & unpriviledged groups.
+
+**In-processing results**
+
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/in-proc.png)
+
+We can observe that, after applying bias mitigation algorithm during training, the equal opportunity difference has reduced from 17% to just 3%. The Average odds difference has reduced from 22% to 13% thereby making the model unbiased to a good extent.
+
+**Post-processing results**
+
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/post-proc.png)
+
+We can observe that, after applying bias mitigation algorithm on predicted labels, there's a change in balanced accuracy and equal opportunity difference indicating the fairness of the results.
+
+This code pattern will be very helpful for developers, machine learning engineers, data scientists, architects, business stakeholders to make unbiased decisions on basis of the model results.
 
 
 # Troubleshooting
