@@ -20,7 +20,7 @@ In this Code Pattern, we will demonstrate the working of AI fairness 360 algorit
 
 ## Architecture diagram
 
-![]()
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/architecture.png)
 
 ### Flow
 
@@ -170,9 +170,11 @@ This code pattern will be very helpful for developers, machine learning engineer
 
 [See DEBUGGING.md.](DEBUGGING.md)
 
+
 ## Citation for data :
 
 `The dataset which is referenced in this code pattern is created and owned by R.K.Sharath Kumar, Data Scientist, IBM India Software Labs.`
+
 
 ## License
 
