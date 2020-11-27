@@ -10,8 +10,147 @@ Fairness is the process of understanding bias introduced by your data, and ensur
 
 The bias mitigation algorithm can be applied in three different stages of model building. These stages are `pre-processing, in-processing & post-processing.` The below diagram demonstrates how it works. 
 
+![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/aif-360-flow.png)
+
+Machine learning models are increasingly used to inform high-stakes decisions about people. Although machine learning, by its very nature, is always a form of statistical discrimination, the discrimination becomes objectionable when it places certain privileged groups at systematic advantage and certain unprivileged groups at systematic disadvantage. Bias in training data, due to either prejudice in labels or under-/over-sampling, yields models with unwanted bias.
+
+The `AIF360 Python package` contains nine different algorithms, developed by the broader algorithmic fairness research community, to mitigate that unwanted bias. They can all be called in a standard way, very similar to scikit-learn’s fit/predict paradigm. In this way, we hope that the package is not only a way to bring all of us researchers together, but also a way to translate our collective research results to data scientists, data engineers, and developers deploying solutions in a variety of industries. You can learn more about AIF 360 [here](http://aif360.mybluemix.net/).
+
+In this Code Pattern, we will demonstrate the working of AI fairness 360 algorithm under different stages of building the model and deployment by using existing code pattern [Fraud Prediction](https://developer.ibm.com/patterns/fraud-prediction-using-autoai/).
+
+## Architecture diagram
+
 ![]()
 
+### Flow
+
+1. Log in to Watson Studio powered by spark, initiate Cloud Object Storage, and  create a project.
+2. Upload the .csv data file to Object Storage.
+3. Load the Data File in Watson Studio Notebook.
+4. Install `aif 360` Toolkit in the Watson Studio Notebook.
+5. Analyze the results after applying the bias mitigation algorithm during pre-processing, in-processing & post-processing stages.
+
+## Included components
+
+* [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+
+* [IBM AI Fairness 360 toolkit](https://www.ibm.com/blogs/research/2018/09/ai-fairness-360/): AI Fairness 360 (AIF360), a comprehensive open-source toolkit of metrics to check for unwanted bias in datasets and machine learning models, and state-of-the-art algorithms to mitigate such bias. 
+
+* [IBM Cloud Object Storage](https://console.bluemix.net/catalog/services/cloud-object-storage): An IBM Cloud service that provides an unstructured cloud data store to build and deliver cost effective apps and services with high reliability and fast speed to market. This code pattern uses Cloud Object Storage.
 
 
+## Featured technologies
+
+* [Artificial Intelligence](https://developer.ibm.com/technologies/artificial-intelligence/): Any system which can mimic cognitive functions that humans associate with the human mind, such as learning and problem solving.
+* [Data Science](https://developer.ibm.com/code/technologies/data-science/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
+* [Analytics](https://developer.ibm.com/code/technologies/analytics/): Analytics delivers the value of data for the enterprise.
+* [Python](https://www.python.org/): Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
+# Steps using Cortex Certifai on Watson Studio
+
+
+1. [Create an account with IBM Cloud](#1-create-an-account-with-ibm-cloud)
+1. [Create a new Watson Studio project](#2-create-a-new-watson-studio-project)
+1. [Add Data](#3-add-data)
+1. [Create the notebook](#4-create-the-notebook)
+1. [Insert the data as dataframe](#5-insert-the-data-as-dataframe)
+1. [Run the notebook](#6-run-the-notebook)
+1. [Analyze the results](#7-analyze-the-results)
+
+## 1. Create an account with IBM Cloud
+
+Sign up for IBM [**Cloud**](https://console.bluemix.net/). By clicking on create a free account you will get 30 days trial account.
+
+## 2. Create a new Watson Studio project
+
+Sign up for IBM's [Watson Studio](http://dataplatform.ibm.com/). 
+
+Click on New Project and select per below.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/create_prj.png)
+
+Define the project by giving a Name and hit 'Create'.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/def_prj.png)
+
+## 3. Add Data
+
+[Clone this repo](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai)
+Navigate to [data/assets](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/tree/main/data/assets) and save the file by name `german_credit_eval.csv` on the disk. The dataset will be available under the Certifai toolkit which was downloaded in the previous step.
+
+Click on Assets and select Browse and add the csv file from your file system.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/add_asset.png)
+
+## 4. Create the notebook
+
+* Open [IBM Watson Studio](https://dataplatform.ibm.com).
+* Go to the project and click on Add 
+* Click on `Create notebook` to create a notebook.
+* Select the `From URL` tab.
+* Enter a name for the notebook.
+* Optionally, enter a description for the notebook.
+* Enter this Notebook URL : https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/notebooks/WS_classifier.ipynb
+* Select the runtime (8 vCPU and 32GB RAM)
+* Click the `Create` button.
+
+After the notebook is imported, click on `Not Trusted` and select the option as Yes to trust the source of the notebook.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/not_trusted.png)
+
+`This notebook has been created to demonstrate the steps for building the model using Watson Studio platform. For other usecases, the notebook has to be created from scratch.`
+
+## 5. Insert the data as dataframe
+
+Click on 0010 icon at the top right side which will bring up the data assets tab.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/add.png)
+
+Click on Insert to code dropdown and select the option Insert Pandas Dataframe.
+
+![](https://github.com/IBM/blackbox-ai-models-explained-using-cortexcertifai/blob/main/images/insert_dataframe.png)
+
+## 6. Run the notebook
+
+When a notebook is executed, what is actually happening is that each code cell in
+the notebook is executed, in order, from top to bottom.
+
+Each code cell is selectable and is preceded by a tag in the left margin. The tag
+format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
+
+* A blank, this indicates that the cell has never been executed.
+* A number, this number represents the relative order this code step was executed.
+* A `*`, this indicates that the cell is currently executing.
+
+There are several ways to execute the code cells in your notebook:
+
+* One cell at a time.
+  * Select the cell, and then press the `Play` button in the toolbar.
+* Batch mode, in sequential order.
+  * From the `Cell` menu bar, there are several options available. For example, you
+    can `Run All` cells in your notebook, or you can `Run All Below`, that will
+    start executing from the first cell under the currently selected cell, and then
+    continue executing all cells that follow.
+
+## 7. Analyze the results
+
+After we run all cells in the notebook, the scan results are uploaded onto object storage which can be downloaded by following these steps. Login to [IBM Cloud](https://cloud.ibm.com/), navigate to `Dashboard` on the left hand side and click on `Storage`. Click on the bucket name which is an extension of the project name in Watson Studio and select the `scan_results.csv` file for downloading it.
+
+
+
+
+
+# Troubleshooting
+
+[See DEBUGGING.md.](DEBUGGING.md)
+
+## Citation for data :
+
+`The dataset which is referenced in this code pattern is created and owned by R.K.Sharath Kumar, Data Scientist, IBM India Software Labs.`
+
+# License
+
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the Developer [Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+
+Check the [ASL FAQ link](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN) for more details
 
