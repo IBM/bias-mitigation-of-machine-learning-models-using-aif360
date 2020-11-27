@@ -161,7 +161,7 @@ After we run all cells in the notebook, the results are displayed at the end of 
 
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/post-proc.png)
 
-We can observe that, after applying bias mitigation algorithm on predicted labels, there's a change in balanced accuracy and equal opportunity difference indicating the fairness of the results.
+**`We can observe that, after applying bias mitigation algorithm on predicted labels, there's a change in balanced accuracy and equal opportunity difference indicating the fairness of the results.`**
 
 This code pattern will be very helpful for developers, machine learning engineers, data scientists, architects, business stakeholders to make unbiased decisions on basis of the model results.
 
