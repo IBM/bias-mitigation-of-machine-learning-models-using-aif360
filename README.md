@@ -138,26 +138,26 @@ There are several ways to execute the code cells in your notebook:
 
 After we run all cells in the notebook, the results are displayed at the end of each notebook per below.
 
-**Pre-processing results**
+### Pre-processing results
 
 `Before pre-processing`
 
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/before-pre-proc.png)
 
-We can observe that, priviledged group had 37% more chance of getting a favorable outcome because of the bias in the dataset.
+**`We can observe that, priviledged group had 37% more chance of getting a favorable outcome because of the bias in the dataset.`**
 
 `After pre-processing`
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/after-pre-proc.png)
 
-We can observe that, after applying bias mitigation algorithm, there is no unfair advantage between priviledged & unpriviledged groups.
+**`We can observe that, after applying bias mitigation algorithm, there is no unfair advantage between priviledged & unpriviledged groups.`**
 
-**In-processing results**
+### In-processing results
 
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/in-proc.png)
 
-We can observe that, after applying bias mitigation algorithm during training, the equal opportunity difference has reduced from 17% to just 3%. The Average odds difference has reduced from 22% to 13% thereby making the model unbiased to a good extent. There's reduction in the numbers before and after de-biasing the dataset metrics.
+**`We can observe that, after applying bias mitigation algorithm during training, the equal opportunity difference has reduced from 17% to just 3%. The Average odds difference has reduced from 22% to 13% thereby making the model unbiased to a good extent. There's reduction in the numbers before and after de-biasing the dataset metrics.`**
 
-**Post-processing results**
+### Post-processing results
 
 ![](https://github.com/IBM/bias-mitigation-of-machine-learning-models-using-aif360/blob/main/images/post-proc.png)
 
@@ -166,7 +166,7 @@ We can observe that, after applying bias mitigation algorithm on predicted label
 This code pattern will be very helpful for developers, machine learning engineers, data scientists, architects, business stakeholders to make unbiased decisions on basis of the model results.
 
 
-# Troubleshooting
+## Troubleshooting
 
 [See DEBUGGING.md.](DEBUGGING.md)
 
@@ -174,7 +174,7 @@ This code pattern will be very helpful for developers, machine learning engineer
 
 `The dataset which is referenced in this code pattern is created and owned by R.K.Sharath Kumar, Data Scientist, IBM India Software Labs.`
 
-# License
+## License
 
 This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the Developer [Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
 
