@@ -1,3 +1,7 @@
+# WARNING: This repository is no longer maintained
+
+> This repository will not be updated. The repository will be kept available in read-only mode.
+
 # Bias Mitigation of predictive models using AI fairness 360 toolkit
 
 How do we remove bias from the machine learning models and ensure that the predictions are fair? What are the three stages in which the bias mitigation solution can be applied? This code pattern answers these questions and more to help developers, data scientists, stakeholders take informed decision by consuming the results of predictive models.
